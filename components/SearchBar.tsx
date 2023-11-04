@@ -27,16 +27,20 @@ const SearchBar = () => {
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (manufacturer === null) {
-      setManuFacturer("");
-      return;
-    }
+    // if (manufacturer === null) {
+    //   setManuFacturer("");
+    //   return;
+    // }
 
-    if (manufacturer.trim() === "" && model.trim() === "") {
-      return alert("Please provide some input");
-    }
+    // if (manufacturer.trim() === "" && model.trim() === "") {
+    //   return alert("Please provide some input");
+    // }
 
-    updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
+    const manufacturerParams =
+      manufacturer === null ? manufacturer : manufacturer.toLowerCase();
+    const modelParams = model === null ? model : model.toLowerCase();
+
+    updateSearchParams(modelParams, manufacturerParams);
   };
 
   const updateSearchParams = (model: string, manufacturer: string) => {
